@@ -10,4 +10,6 @@ Basically, if you're curious about what's going on, it was going to have us use 
   
 Now once you click on that link, wait for it to get your credentials. Click on "Copy to clipboard", and put it in a text editor. You'll need it. Now click on "Got it, take me back to the quick start". Copy your "App ID (or Client ID)" and paste that in the text editor too (on seperate lines I hope!) We don't need the quick start any more, so close it.  
   
-For the next part, backing up your Raspberry Pi, your Raspberry Pi should be running Raspbian with a graphical desktop. Download auth.py onto your Raspberry Pi, and run it.
+For the next part, backing up your Raspberry Pi, your Raspberry Pi should be running Raspbian with a graphical desktop. Download `auth.py` onto your Raspberry Pi, and run it with Python 3. It will guide you. If everything works, you should be ready to start backing up your Raspberry Pi soon!  
+  
+You're almost ready. Next, download `backup.py`. Change `client_id` to your client ID, and move it to the `/root` directory with `sudo mv /home/pi/Downloads/backup.py /root/backup.py`. If the downloaded file isn't at `/home/pi/Downloads/backup.py`, adjust it accordingly.
