@@ -12,4 +12,6 @@ Now once you click on that link, wait for it to get your credentials. Click on "
   
 For the next part, backing up your Raspberry Pi, your Raspberry Pi should be running Raspbian with a graphical desktop. Download `auth.py` onto your Raspberry Pi, and run it with Python 3. It will guide you. If everything works, you should be ready to start backing up your Raspberry Pi soon!  
   
-You're almost ready. Next, download `backup.py`. Change `client_id` to your client ID, and move it to the `/root` directory with `sudo mv /home/pi/Downloads/backup.py /root/backup.py`. If the downloaded file isn't at `/home/pi/Downloads/backup.py`, adjust it accordingly.
+You're almost ready. Next, download `backup.py`. Change `client_id` to your client ID, and move it to the `/root` directory with `sudo mv /home/pi/Downloads/backup.py /root/backup.py`. If the downloaded file isn't at `/home/pi/Downloads/backup.py`, adjust it accordingly. That should be it! To run it every 3AM (don't worry, it compresses backups, deletes backups more than 1 week old, and removes temporary backup files), you can run this to quickly add it to your crontab: `(sudo crontab -l ; echo "0 3 * * * python3 /root/backup.py")| sudo crontab -`. Or to manually run it, do `sudo python3 /root/backup.py`
+  
+I hope this helped you back up your Pi. Feel free to look around my code. Happy backuping!  
