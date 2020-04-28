@@ -1,6 +1,7 @@
 import onedrivesdk
 import os
 import asyncio
+from zipfile import ZipFile
 
 scopes = ['wl.signin', 'wl.offline_access', 'onedrive.readwrite']
 http_provider = onedrivesdk.HttpProvider()
@@ -21,42 +22,42 @@ def status(part, total):
 def download(client, drivename, localname):
     loop = asyncio.get_event_loop()
     loop.run_until_complete(client.item(drive='me', path=drivename).download_async(localname))
-from zipfile import ZipFile
+
 
 backup = ZipFile('thisbackup.zip', 'w')
 print("Backing up home directory...")
 for folderName, subfolders, filenames in os.walk("/home/"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-          if "Singleton" not in filePath and "Cache" not in filePath:
-             backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "Singleton" not in filePath and "Cache" not in filePath:
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /bin...")
 for folderName, subfolders, filenames in os.walk("/bin"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-          if "cache" not in filePath.lower():
-             backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+         # create complete filepath of file in directory
+         filePath = os.path.join(folderName, filename)
+         # Add file to zip
+         try:
+             if "cache" not in filePath.lower():
+                 backup.write(filePath)
+         except FileNotFoundError:
+             pass
 print("Backing up /boot...")
 for folderName, subfolders, filenames in os.walk("/boot"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+         # create complete filepath of file in directory
+         filePath = os.path.join(folderName, filename)
+         # Add file to zip
+         try:
+              if "cache" not in filePath.lower():
+                   backup.write(filePath)
+         except FileNotFoundError:
+             pass
 print("Backing up /etc...")
 for folderName, subfolders, filenames in os.walk("/etc"):
    for filename in filenames:
