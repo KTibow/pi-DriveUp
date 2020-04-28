@@ -1,5 +1,5 @@
 # raspberrypi-onedrive-backup
-![image logo for raspberry pi backup to onedrive](https://github.com/KTibow/raspberrypi-onedrive-backup/blob/master/backuplogoimg.jpg)
+![image logo for raspberry pi backup to onedrive](backuplogoimg.jpg)
 A simple way to backup your Raspberry Pi to your OneDrive account using Python 3.  
 # Instructions to get started:
 To start, install [onedrive-sdk-python](https://github.com/OneDrive/onedrive-sdk-python/) by running `sudo pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git`. Once installed, you'll need a client ID and secret. Here's how to get it.  
