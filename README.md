@@ -36,12 +36,13 @@ That's all the steps needed for getting your credentials!
 ## Running
 **In order to run this script, you must have a fair bit of spare memory on your SD card.
 It compresses your whole disk into a `.zip` and stores it locally until it uploads.
-Also note that this won't always upload; OneDrive can be flakey sometimes.**
+Also note that this won't always upload; OneDrive can be flakey sometimes.**  
 &nbsp;&nbsp;&nbsp;&nbsp;To manually backup your Pi, do this at the command line:
 ```bash
 sudo -s
 cd /root
 python3 /root/backup.py
+exit
 ```
 ## Scheduling
 &nbsp;&nbsp;&nbsp;&nbsp;To run it every 3AM, I'd recommend you add it to your crontab. Don't worry, it automatically deletes local backups. You can run this to quickly add it:
