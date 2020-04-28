@@ -27,7 +27,7 @@ backup = ZipFile('thisbackup.zip', 'w')
 print("Backing up home directory...")
 for folderName, subfolders, filenames in os.walk("/home/"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -38,7 +38,7 @@ for folderName, subfolders, filenames in os.walk("/home/"):
 print("Backing up /bin...")
 for folderName, subfolders, filenames in os.walk("/bin"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -49,7 +49,7 @@ for folderName, subfolders, filenames in os.walk("/bin"):
 print("Backing up /boot...")
 for folderName, subfolders, filenames in os.walk("/boot"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -60,7 +60,7 @@ for folderName, subfolders, filenames in os.walk("/boot"):
 print("Backing up /etc...")
 for folderName, subfolders, filenames in os.walk("/etc"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -71,7 +71,7 @@ for folderName, subfolders, filenames in os.walk("/etc"):
 print("Backing up /lib...")
 for folderName, subfolders, filenames in os.walk("/lib"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -82,7 +82,7 @@ for folderName, subfolders, filenames in os.walk("/lib"):
 print("Backing up /lost+found...")
 for folderName, subfolders, filenames in os.walk("/lost+found"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -93,7 +93,7 @@ for folderName, subfolders, filenames in os.walk("/lost+found"):
 print("Backing up /media...")
 for folderName, subfolders, filenames in os.walk("/media"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -104,7 +104,7 @@ for folderName, subfolders, filenames in os.walk("/media"):
 print("Backing up /mnt...")
 for folderName, subfolders, filenames in os.walk("/mnt"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -115,7 +115,7 @@ for folderName, subfolders, filenames in os.walk("/mnt"):
 print("Backing up /opt...")
 for folderName, subfolders, filenames in os.walk("/opt"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -126,7 +126,7 @@ for folderName, subfolders, filenames in os.walk("/opt"):
 print("Backing up /sbin...")
 for folderName, subfolders, filenames in os.walk("/sbin"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -137,7 +137,7 @@ for folderName, subfolders, filenames in os.walk("/sbin"):
 print("Backing up /srv...")
 for folderName, subfolders, filenames in os.walk("/srv"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -148,7 +148,7 @@ for folderName, subfolders, filenames in os.walk("/srv"):
 print("Backing up /usr...")
 for folderName, subfolders, filenames in os.walk("/usr"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -159,7 +159,7 @@ for folderName, subfolders, filenames in os.walk("/usr"):
 print("Backing up /var...")
 for folderName, subfolders, filenames in os.walk("/var"):
    for filename in filenames:
-       #create complete filepath of file in directory
+       # create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
        # Add file to zip
        try:
@@ -183,7 +183,7 @@ while (not success) and (iterations < 3):
     except KeyboardInterrupt:
         print("Okay, okay, bye.")
         success = True
-    except Exception as e:
+    except Exception:
         success = False
     iterations += 1
 print("Freeing up space by deleting local zip backup...")
