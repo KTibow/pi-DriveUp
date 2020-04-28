@@ -32,6 +32,9 @@ That's all the steps needed for getting your credentials!
 6. Move it to the `/root` directory. That should be it!  
   
 ## Running
+**In order to run this script, you must have a fair bit of spare memory on your SD card.
+It compresses your whole disk into a `.zip` and stores it locally until it uploads.
+Also note that this won't always upload; OneDrive can be flakey sometimes.**
 &nbsp;&nbsp;&nbsp;&nbsp;To manually backup your Pi, do this at the command line:
 ```bash
 sudo python3 /replace/this/with/your/path/to/backup.py
