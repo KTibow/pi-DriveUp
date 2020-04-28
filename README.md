@@ -1,10 +1,14 @@
 # raspberrypi-onedrive-backup
 ![image logo for raspberry pi backup to onedrive](backuplogoimg.jpg)
 A simple way to backup your Raspberry Pi to your OneDrive account using Python 3.  
-# Instructions to get started:
-To start, install [onedrive-sdk-python](https://github.com/OneDrive/onedrive-sdk-python/) by running `sudo pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git`. Once installed, you'll need a client ID and secret. Here's how to get it.  
-  
-Click [here](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) to open the Azure app manager. You may need to sign up for Azure. Once the Azure page loads, click on "New registration".
+# Instructions:
+## Installing dependencies
+onedrive-sdk-python ([https://github.com/OneDrive/onedrive-sdk-python/](https://github.com/OneDrive/onedrive-sdk-python/)) is the only dependency! Install it by running this to get the latest version:
+```bash
+sudo pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git
+```
+## Authentication
+In order to get OneDrive credentials, we open the [Azure app manager](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade), because the OneDrive API is part of the Microsoft Graph API, which is part of Azure. You may need to sign up for Azure. Once the Azure page loads, click on "New registration".
   
 Name your app "OneDrive Backup". Don't worry, these names aren't a unique identifier. The default setting for supported account types is fine. For the redirect URI, set the type to Web and the URI to `http://localhost:8080/`. Click on "Register" at the bottom, and it'll create your app.  
   
