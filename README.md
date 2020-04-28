@@ -19,6 +19,7 @@ sudo pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git
 9. Make sure you choose ![Never](assets/never.png) for ![Expires](assets/expires.png) (otherwise your backup will stop working!). Don't type anything for the description.
 10. Click on ![Add](assets/add_secret.png), and it'll create the secret.
 11. Press the copy button, and put it into your notepad.  
+  
 That's all the steps needed for getting your credentials!  
     
 ## Setup
