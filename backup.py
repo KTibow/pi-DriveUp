@@ -1,10 +1,11 @@
-import onedrivesdk, os, asyncio
-from onedrivesdk.helpers import GetAuthCodeServer
+import onedrivesdk
+import os
+import asyncio
 
-scopes=['wl.signin', 'wl.offline_access', 'onedrive.readwrite']
+scopes = ['wl.signin', 'wl.offline_access', 'onedrive.readwrite']
 http_provider = onedrivesdk.HttpProvider()
-client_id='your_client_id'
-base_url='https://api.onedrive.com/v1.0/'
+client_id = 'your_client_id'
+base_url = 'https://api.onedrive.com/v1.0/'
 auth_provider = onedrivesdk.AuthProvider(http_provider,
                                          client_id,
                                          scopes)
