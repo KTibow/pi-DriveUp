@@ -126,15 +126,15 @@ for folderName, subfolders, filenames in os.walk("/opt"):
             pass
 print("Backing up /sbin...")
 for folderName, subfolders, filenames in os.walk("/sbin"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /srv...")
 for folderName, subfolders, filenames in os.walk("/srv"):
     for filename in filenames:
