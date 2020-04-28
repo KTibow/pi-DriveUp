@@ -13,7 +13,7 @@ auth_url = client.auth_provider.get_auth_url(redirect_uri)
 
 print("A blank webpage will pop up in 10 seconds. If it says that it couldn't connect, then re-run this script. It will automatically close itself.")
 sleep(10)
-print("If a window doesn't pop up in the next few seconds, copy and paste "+auth_url+" into your browser.")
+print("If a window doesn't pop up in the next few seconds, or if this machine doesn't have an accesible web browser, copy and paste "+auth_url+" into your browser.")
 #this will block until we have the code
 code = GetAuthCodeServer.get_auth_code(auth_url, redirect_uri)
 
