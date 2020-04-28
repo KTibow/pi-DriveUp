@@ -1,6 +1,6 @@
-# raspberrypi-onedrive-backup
+# pi-drive-up
 A simple way to backup your Raspberry Pi to your OneDrive account using Python 3.  
-![flake8 python lint](https://github.com/KTibow/raspberrypi-onedrive-backup/workflows/flake8%20python%20lint/badge.svg)  
+![flake8 python lint](https://github.com/KTibow/pi-drive-up/workflows/flake8%20python%20lint/badge.svg)  
 ![image logo for raspberry pi backup to onedrive](assets/backuplogoimg.jpg)
 # Installation instructions:
 ## Installing dependencies
