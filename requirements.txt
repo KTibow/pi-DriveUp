@@ -1,1 +1,1 @@
-onedrivesdk
+git+https://github.com/OneDrive/onedrive-sdk-python.git#egg=onedrivesdk
