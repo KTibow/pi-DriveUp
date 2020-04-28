@@ -22,7 +22,7 @@ from time import time
 
 backup = ZipFile('thisbackup.zip', 'w')
 print("Backing up home directory...")
-for folderName, subfolders, filenames in os.walk("/home/pi"):
+for folderName, subfolders, filenames in os.walk("/home/"):
    for filename in filenames:
        #create complete filepath of file in directory
        filePath = os.path.join(folderName, filename)
@@ -165,24 +165,25 @@ for folderName, subfolders, filenames in os.walk("/var"):
        except FileNotFoundError:
           pass
 backup.close()
-print("Downloading previous backups...")
-download(client, "backup.zip", 'prevbackups.zip')
-print("Removing old backups and adding this one...")
-zin = ZipFile('prevbackups.zip', 'r')
-zout = ZipFile('backup.zip', 'w')
-for item in zin.infolist():
-    buffer = zin.read(item.filename)
-    if time()-item.filename[6:len(item.filename)-4] < 604800:
-        zout.writestr(item, buffer)
-zout.write('thisbackup.zip')
-zout.close()
-zin.close()
-print("Freeing up space by deleting temp zip backups...")
-os.remove("prevbackups.zip")
-os.remove("thisbackup.zip")
+print("Deleting old backups...")
+try:
+    client.item(drive='me', path="backup.zip").delete()
+except Exception as e:
+    print("Error deleting "+str(e))
 print("Uploading...")
-client.item(drive='me', path="backup.zip").upload_async('./backup.zip', upload_status=status)
-print("Freeing up space by deleting local zip backups...")
+success = False
+iterations = 0
+while (not success) and (iterations < 3):
+    success = True
+    try:
+        client.item(drive='me', path="backup.zip").upload_async('./thisbackup.zip', upload_status=status)
+    except KeyboardInterrupt:
+        print("Okay, okay, bye.")
+        success = True
+    except Exception as e:
+        success = False
+    iterations += 1
+print("Freeing up space by deleting local zip backup...")
 os.remove("backup.zip")
 print("Saving session...")
 auth_provider.save_session()
