@@ -15,7 +15,7 @@ sudo pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git
 5. For the redirect URI, set the type to `Web` and the URI to `http://localhost:8080/`.
 6. Click on ![Register](assets/accept_reg.png) at the bottom, and it'll create your app!  
 7. Copy the client ID to a place you'll be able to find it later.
-8. Click on ![Certificates and Secrets](certs_secrets.png). Click on ![New secret](assets/new_secret.png). 
+8. Click on ![Certificates and Secrets](assets/certs_secrets.png). Click on ![New secret](assets/new_secret.png). 
 9. Make sure you choose ![Never](assets/never.png) for ![Expires](assets/expires.png) (otherwise your backup will stop working!). Don't type anything for the description.
 10. Click on ![Add](assets/add_secret.png), and it'll create the secret.
 11. Press the copy button, and put it into your notepad.
