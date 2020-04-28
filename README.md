@@ -1,6 +1,6 @@
 # raspberrypi-onedrive-backup
 A simple way to backup your Raspberry Pi to your OneDrive account using Python 3.  
-![image logo for raspberry pi backup to onedrive](backuplogoimg.jpg)
+![image logo for raspberry pi backup to onedrive](assets/backuplogoimg.jpg)
 # Installation instructions:
 ## Installing dependencies
 &nbsp;&nbsp;&nbsp;&nbsp;The only dependency is onedrive-sdk-python! Install it by running this:
@@ -9,15 +9,15 @@ sudo pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git
 ```
 ## Authentication
 1. In order to get OneDrive access credentials, we open the [Azure app manager](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade). You may need to sign up for Azure.
-2. Once the Azure page loads, click on ![New registration](new_reg.png).
+2. Once the Azure page loads, click on ![New registration](assets/new_reg.png).
 3. Name your app `OneDrive Backup` to make it easier to find later.
 4. Use the default setting for supported account types.
 5. For the redirect URI, set the type to `Web` and the URI to `http://localhost:8080/`.
-6. Click on ![Register](accept_reg.png) at the bottom, and it'll create your app!  
+6. Click on ![Register](assets/accept_reg.png) at the bottom, and it'll create your app!  
 7. Copy the client ID to a place you'll be able to find it later.
-8. Click on ![Certificates and Secrets](certs_secrets.png). Click on ![New secret](new_secret.png). 
-9. Make sure you choose ![Never](never.png) for ![Expires](expires.png) (otherwise your backup will stop working!). Don't type anything for the description.
-10. Click on ![Add](add_secret.png), and it'll create the secret.
+8. Click on ![Certificates and Secrets](certs_secrets.png). Click on ![New secret](assets/new_secret.png). 
+9. Make sure you choose ![Never](assets/never.png) for ![Expires](assets/expires.png) (otherwise your backup will stop working!). Don't type anything for the description.
+10. Click on ![Add](assets/add_secret.png), and it'll create the secret.
 11. Press the copy button, and put it into your notepad.
 That's all the steps needed for getting your credentials!
 ## Setup
