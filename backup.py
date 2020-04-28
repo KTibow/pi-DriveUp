@@ -13,13 +13,15 @@ auth_provider.load_session()
 auth_provider.refresh_token()
 client = onedrivesdk.OneDriveClient(base_url, auth_provider, http_provider)
 
+
 def status(part, total):
     print(str(round((part+1)/(total+1)*10000)/10.0)+"% complete, "+str(part)+"/"+str(total))
+
+
 def download(client, drivename, localname):
     loop = asyncio.get_event_loop()
     loop.run_until_complete(client.item(drive='me', path=drivename).download_async(localname))
 from zipfile import ZipFile
-from time import time
 
 backup = ZipFile('thisbackup.zip', 'w')
 print("Backing up home directory...")
