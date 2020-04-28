@@ -20,17 +20,17 @@ sudo pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git
 10. Click on ![Add](assets/add_secret.png), and it'll create the secret.
 11. Press the copy button, and put it into your notepad.  
 That's all the steps needed for getting your credentials!  
-  
     
 ## Setup
-- For the next part, backing up your Raspberry Pi, your Raspberry Pi should be running [Raspbian](https://www.raspberrypi.org/downloads/).
+- For the next part, backing up your Raspberry Pi, your Raspberry Pi should be running [Raspbian](https://www.raspberrypi.org/downloads/).  
+  
 1. Download <a id="raw-url" href="auth.py?raw=true" download>auth.py</a> onto your Raspberry Pi.
 2. Move the program to `/home/pi`.
-3. Run it with Python 3. It will guide you through setting up `backup.py`. 
-  
+3. Run it with Python 3. It will guide you through setting up the backup program. 
 4. Next, download <a id="raw-url" href="backup.py?raw=true" download>backup.py</a>.
 5. Change `client_id` to your client ID. You don't need your secret, since `auth.py` configured that.
 6. Move it to the `/root` directory. That should be it!  
+  
 ## Running
 - To manually backup your Pi, do this at the command line:
 ```bash
