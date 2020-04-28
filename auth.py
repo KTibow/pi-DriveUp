@@ -4,7 +4,8 @@ from onedrivesdk.helpers import GetAuthCodeServer
 from time import sleep
 
 redirect_uri = 'http://localhost:8080/'
-client_secret = input("What's your client secret? Make sure you didn't copy anything else. Paste it in and press enter: ")
+print("What's your client secret? Make sure you didn't copy anything else.")
+client_secret = input("Paste it in and press enter: ")
 scopes = ['wl.signin', 'wl.offline_access', 'onedrive.readwrite']
 
 client = onedrivesdk.get_default_client(
