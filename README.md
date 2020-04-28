@@ -8,7 +8,7 @@ A simple way to backup your Raspberry Pi to your OneDrive account using Python 3
 sudo pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git
 ```
 ## Authentication
-1. In order to get OneDrive access credentials, we open the [Azure app manager](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade). You may need to sign up for Azure.
+1. In order to get OneDrive access credentials, we open the [Azure app manager](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade). You may need to sign up for Azure (for free).
 2. Once the Azure page loads, click on ![New registration](assets/new_reg.png).
 3. Name your app `OneDrive Backup` to make it easier to find later.
 4. Use the default setting for supported account types.
@@ -22,7 +22,7 @@ sudo pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git
 That's all the steps needed for getting your credentials!  
     
 ## Setup
-- For the next part, backing up your Raspberry Pi, your Raspberry Pi should be running [Raspbian](https://www.raspberrypi.org/downloads/).  
+&nbsp;&nbsp;&nbsp;&nbsp;For the next part, backing up your Raspberry Pi, your Raspberry Pi should be running [Raspbian](https://www.raspberrypi.org/downloads/).  
   
 1. Download <a id="raw-url" href="auth.py?raw=true" download>auth.py</a> onto your Raspberry Pi.
 2. Move the program to `/home/pi`.
@@ -32,7 +32,7 @@ That's all the steps needed for getting your credentials!
 6. Move it to the `/root` directory. That should be it!  
   
 ## Running
-- To manually backup your Pi, do this at the command line:
+&nbsp;&nbsp;&nbsp;&nbsp;To manually backup your Pi, do this at the command line:
 ```bash
 sudo python3 /replace/this/with/your/path/to/backup.py
 ```
