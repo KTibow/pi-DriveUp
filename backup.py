@@ -39,91 +39,91 @@ for folderName, subfolders, filenames in os.walk("/home/"):
 print("Backing up /bin...")
 for folderName, subfolders, filenames in os.walk("/bin"):
     for filename in filenames:
-         # create complete filepath of file in directory
-         filePath = os.path.join(folderName, filename)
-         # Add file to zip
-         try:
-             if "cache" not in filePath.lower():
-                 backup.write(filePath)
-         except FileNotFoundError:
-             pass
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /boot...")
 for folderName, subfolders, filenames in os.walk("/boot"):
     for filename in filenames:
-         # create complete filepath of file in directory
-         filePath = os.path.join(folderName, filename)
-         # Add file to zip
-         try:
-              if "cache" not in filePath.lower():
-                   backup.write(filePath)
-         except FileNotFoundError:
-             pass
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /etc...")
 for folderName, subfolders, filenames in os.walk("/etc"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /lib...")
 for folderName, subfolders, filenames in os.walk("/lib"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /lost+found...")
 for folderName, subfolders, filenames in os.walk("/lost+found"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /media...")
 for folderName, subfolders, filenames in os.walk("/media"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /mnt...")
 for folderName, subfolders, filenames in os.walk("/mnt"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /opt...")
 for folderName, subfolders, filenames in os.walk("/opt"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /sbin...")
 for folderName, subfolders, filenames in os.walk("/sbin"):
    for filename in filenames:
@@ -137,37 +137,37 @@ for folderName, subfolders, filenames in os.walk("/sbin"):
           pass
 print("Backing up /srv...")
 for folderName, subfolders, filenames in os.walk("/srv"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /usr...")
 for folderName, subfolders, filenames in os.walk("/usr"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 print("Backing up /var...")
 for folderName, subfolders, filenames in os.walk("/var"):
-   for filename in filenames:
-       # create complete filepath of file in directory
-       filePath = os.path.join(folderName, filename)
-       # Add file to zip
-       try:
-           if "cache" not in filePath.lower():
-               backup.write(filePath)
-       except FileNotFoundError:
-          pass
+    for filename in filenames:
+        # create complete filepath of file in directory
+        filePath = os.path.join(folderName, filename)
+        # Add file to zip
+        try:
+            if "cache" not in filePath.lower():
+                backup.write(filePath)
+        except FileNotFoundError:
+            pass
 backup.close()
 print("Deleting old backups...")
 try:
