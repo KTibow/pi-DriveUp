@@ -1,6 +1,7 @@
 # pi-DriveUp
 A simple way to backup your Raspberry Pi to your OneDrive account using Python 3.  
 ![flake8 python lint](https://github.com/KTibow/pi-drive-up/workflows/flake8%20python%20lint/badge.svg)  
+![Dependencies are auto-installed](https://img.shields.io/badge/dependencies-auto--installed-099)  
 ![image logo for raspberry pi backup to onedrive](assets/backuplogoimg.jpg)
 # Installation instructions:
 ## Installing dependencies
@@ -34,9 +35,9 @@ That's all the steps needed for getting your credentials!
 6. Move it to the `/root` directory. That should be it!  
   
 ## Running
-**In order to run this script, you must have a fair bit of spare memory on your SD card.
+In order to run this script, **you must have a fair bit of spare memory** on your SD card.
 It compresses your whole disk into a `.zip` and stores it locally until it uploads.
-Also note that this won't always upload; OneDrive can be flakey sometimes.**  
+Also note that **this won't always upload**; OneDrive can be flakey sometimes.  
 &nbsp;&nbsp;&nbsp;&nbsp;To manually backup your Pi, do this at the command line:
 ```bash
 sudo -s
