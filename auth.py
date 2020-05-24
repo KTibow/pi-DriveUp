@@ -50,4 +50,6 @@ bckfile = open("backup.py", "w")
 bckfile.write(bckscript)
 bckfile.close()
 os.system("sudo mv "+os.getcwd()+"/backup.py /root/backup.py")
-print("Done!")
+print("Done! Opening the docs.")
+import webbrowser
+webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/#running")
