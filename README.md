@@ -29,7 +29,7 @@ That's all the steps needed for getting your credentials!
 ## Setup
 &nbsp;&nbsp;&nbsp;&nbsp;For the next part, backing up your Raspberry Pi, your Raspberry Pi should be running [Raspbian](https://www.raspberrypi.org/downloads/).  
   
-1. Download <a id="raw-url" href="auth.py?raw=true" download>auth.py</a> onto your Raspberry Pi.
+1. Download <a id="raw-url" href="https://github.com/ktibow/pi-driveup/releases/latest/download/auth.py" download>auth.py</a> onto your Raspberry Pi.
 2. Run it with Python 3. It will guide you through setting up the backup program. 
 
 Note: You need to be a member of `sudoers` for `auth.py` to work. Also, *just to clarify*, this is meant to run on a Raspberry Pi.
