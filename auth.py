@@ -1,4 +1,17 @@
-import onedrivesdk
+from pip._internal import main as A # This is requireit: https://github.com/KTibow/requireit
+class VersionError(Exception):0
+class InstallError(Exception):0
+E="Couldn't auto-install ";F='install'
+def requireit(B):
+	for C in B:
+		J=C if isinstance(C,str)else C[0]
+		try:from importlib import import_module as L
+		except ImportError:raise VersionError('Please upgrade Python')
+		try: globals()[J]=L(J)
+		except ModuleNotFoundError:
+			try:A([F,C]) if isinstance(C,str)else A([F,C[1]]);globals()[J]=L(J)
+			except Exception:raise InstallError(E+J)
+requireit([["onedrivesdk", "git+https://github.com/OneDrive/onedrive-sdk-python.git"]])
 import os
 from onedrivesdk.helpers import GetAuthCodeServer
 from time import sleep
@@ -27,4 +40,4 @@ client.auth_provider.authenticate(code, redirect_uri, client_secret)
 
 client.auth_provider.save_session()
 os.system("sudo mv /home/pi/session.pickle /root/session.pickle")
-print("Auth code set up. You only need to run this once, unless you start getting exceptions.")
+print("Auth code set up. You only need to run this once, unless you start getting errors.")
