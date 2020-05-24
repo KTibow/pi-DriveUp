@@ -209,6 +209,6 @@ while (not success) and (iterations < 3):
         success = False
     iterations += 1
 print("Freeing up space by deleting local zip backup...")
-os.remove("backup.zip")
+os.remove("thisbackup.zip")
 print("Saving session...")
 auth_provider.save_session()
