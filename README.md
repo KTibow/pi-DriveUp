@@ -50,5 +50,6 @@ exit
 ```bash
 (sudo crontab -l ; echo "0 3 * * * cd /root; python3 /root/backup.py") | sudo crontab -
 ```
+**Warning:** When you run that, it'll initially say `no crontab for root` if you haven't edited the root crontab yet. Don't worry, it's there. Run it twice, and you'll have two backups, which could lead to problems. List your current root crontab with `sudo crontab -l`.
   
 &nbsp;&nbsp;&nbsp;&nbsp;I hope this helped you back up your Pi. Feel free to look around my code and do anything you want with it (at least under the license 😋). Happy backuping!  
