@@ -4,10 +4,9 @@ A simple way to backup your Raspberry Pi to your OneDrive account using Python 3
 ![Dependencies are auto-installed](https://img.shields.io/badge/dependencies-auto--installed-099)  
 ![image logo for raspberry pi backup to onedrive](assets/backuplogoimg.jpg)
 # Installation instructions:
-## Installing dependencies
-&nbsp;&nbsp;&nbsp;&nbsp;The only dependency is onedrive-sdk-python! Install it by running this:
+&nbsp;&nbsp;&nbsp;&nbsp;The only dependency is onedrive-sdk-python! [Requireit automatically installs it, though.](https://github.com/KTibow/requireit) If you want to make sure, manually install it by running this:
 ```bash
-sudo pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git
+pip3 install git+https://github.com/OneDrive/onedrive-sdk-python.git --user
 ```
 ## Authentication
 1. In order to get OneDrive access credentials, we open the [Azure app manager](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade). You may need to sign up for Azure (for free).
