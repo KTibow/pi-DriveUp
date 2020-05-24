@@ -1,3 +1,4 @@
+onedrivesdk = 0
 from pip._internal import main as A # This is requireit: https://github.com/KTibow/requireit
 class VersionError(Exception):0
 class InstallError(Exception):0
@@ -12,6 +13,8 @@ def requireit(B):
 			try:A([F,C]) if isinstance(C,str)else A([F,C[1]]);globals()[J]=L(J)
 			except Exception:raise InstallError(E+J)
 requireit([["onedrivesdk", "git+https://github.com/OneDrive/onedrive-sdk-python.git"]])
+if onedrivesdk == 0:
+	print("Package error... If there's an exception later, replace this and everything above with \"import onedrivesdk\". Make sure you've installed it with \"pip install git+https://github.com/OneDrive/onedrive-sdk-python.git\" too.")
 import os
 from onedrivesdk.helpers import GetAuthCodeServer
 from time import sleep
