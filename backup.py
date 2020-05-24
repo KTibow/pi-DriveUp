@@ -32,7 +32,7 @@ client = onedrivesdk.OneDriveClient(base_url, auth_provider, http_provider)
 
 
 def status(part, total):
-    print(str(round((part + 1) / (total + 1) * 10000) / 10.0) + "% complete, " + str(part) + "/" + str(total))
+    print("about" + str(round((part + 1) / (total + 1) * 10000) / 100.0) + "% complete, " + str(part) + "/" + str(total))
 
 
 def download(client, drivename, localname):
