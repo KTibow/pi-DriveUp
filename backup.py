@@ -1,4 +1,17 @@
-import onedrivesdk
+from pip._internal import main as A # This is requireit: https://github.com/KTibow/requireit
+class VersionError(Exception):0
+class InstallError(Exception):0
+E="Couldn't auto-install ";F='install'
+def requireit(B):
+	for C in B:
+		J=C if isinstance(C,str)else C[0]
+		try:from importlib import import_module as L
+		except ImportError:raise VersionError('Please upgrade Python')
+		try: globals()[J]=L(J)
+		except ModuleNotFoundError:
+			try:A([F,C]) if isinstance(C,str)else A([F,C[1]]);globals()[J]=L(J)
+			except Exception:raise InstallError(E+J)
+requireit([["onedrivesdk", "git+https://github.com/OneDrive/onedrive-sdk-python.git"]])
 import os
 import asyncio
 from zipfile import ZipFile
@@ -182,8 +195,13 @@ while (not success) and (iterations < 3):
     try:
         client.item(drive='me', path="backup.zip").upload_async('./thisbackup.zip', upload_status=status)
     except KeyboardInterrupt:
-        print("Okay, okay, bye.")
-        success = True
+        success = False
+        if iterations == 0:
+            print("Nope, still gotta upload this.")
+        elif iterations == 1:
+            print("This, it's important.")
+        elif iterations == 2:
+            print("Fine, fine, I'm done.")
     except Exception:
         success = False
     iterations += 1
