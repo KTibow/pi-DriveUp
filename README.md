@@ -1,7 +1,7 @@
 # pi-DriveUp
 A simple way to backup your Raspberry Pi to your OneDrive account using Python 3.  
 ![flake8 python lint](https://github.com/KTibow/pi-drive-up/workflows/flake8%20python%20lint/badge.svg)  
-![Dependencies are auto-installed](https://img.shields.io/badge/dependencies-auto--installed-099)  
+![Dependencies are auto-installed](https://img.shields.io/badge/dependencies-auto--installed%20by%20requireit-099)  
 ![image logo for raspberry pi backup to onedrive](assets/backuplogoimg.jpg)
 # Installation instructions:
 [Requireit automatically installs](https://github.com/KTibow/requireit) `onedrive-sdk-python`, the only dependency.  
@@ -30,11 +30,9 @@ That's all the steps needed for getting your credentials!
 &nbsp;&nbsp;&nbsp;&nbsp;For the next part, backing up your Raspberry Pi, your Raspberry Pi should be running [Raspbian](https://www.raspberrypi.org/downloads/).  
   
 1. Download <a id="raw-url" href="auth.py?raw=true" download>auth.py</a> onto your Raspberry Pi.
-2. Move the program to `/home/pi`.
-3. Run it with Python 3. It will guide you through setting up the backup program. 
-4. Next, download <a id="raw-url" href="backup.py?raw=true" download>backup.py</a>.
-5. Change `client_id` to your client ID. You don't need your secret, since `auth.py` configured that.
-6. Move it to the `/root` directory. That should be it!  
+2. Run it with Python 3. It will guide you through setting up the backup program. 
+
+Note: You need to be a member of `sudoers` for `auth.py` to work. Also, *just to clarify*, this is meant to run on a Raspberry Pi.
   
 ## Running
 In order to run this script, **you must have a fair bit of spare memory** on your SD card.
