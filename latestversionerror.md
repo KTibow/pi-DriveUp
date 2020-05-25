@@ -4,7 +4,7 @@ Manually run `backup.py`. Find the error. If you need help, [make an issue](http
 ### What does the error look like?
 Something like:
 ```
-Couldn't load because of [the error].
+Couldn't get the latest version of backup.py because of [the error].
 ```
 ### Why did this happen?
 There are multiple possible reasons. A likely one is that you weren't connected to the Internet. If you can't fix it, [make an issue](https://github.com/KTibow/pi-DriveUp/issues/new).
