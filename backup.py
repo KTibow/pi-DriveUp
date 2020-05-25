@@ -73,26 +73,32 @@ except Exception as e:
     webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/autherror.html")
     exit()
 # Compression
-backup = ZipFile('thisbackup.zip', 'w')
-for dir in ["/home", "/bin", "/boot", "/etc", "/lib", "/lost+found", "/media", "/mnt", "/opt", "/sbin", "/srv", "/usr", "/var"]:
-    print("Backing up "+dir+" directory...")
-    for folderName, subfolders, filenames in os.walk(dir):
-        for filename in filenames:
-            # create complete filepath of file in directory
-            filePath = os.path.join(folderName, filename)
-            # Add file to zip
-            try:
-                if "singleton" not in filePath.lower() and "cache" not in filePath.lower():
-                    backup.write(filePath)
-            except FileNotFoundError:
-                pass
+try:
+    backup = ZipFile('thisbackup.zip', 'w')
+    for dir in ["/home", "/bin", "/boot", "/etc", "/lib", "/lost+found", "/media", "/mnt", "/opt", "/sbin", "/srv", "/usr", "/var"]:
+        print("Backing up "+dir+" directory...")
+        for folderName, subfolders, filenames in os.walk(dir):
+            for filename in filenames:
+                # create complete filepath of file in directory
+                filePath = os.path.join(folderName, filename)
+                # Add file to zip
+                try:
+                    if "singleton" not in filePath.lower() and "cache" not in filePath.lower():
+                        backup.write(filePath)
+                except FileNotFoundError:
+                    pass
 backup.close()
+except Exception as e:
+    print("Couldn't compress the Raspberry Pi because of "+str(e)+".")
+    webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/ziperror.html")
+    exit()
 # Free up **cloud** space
-print("Deleting old backups...")
+print("Deleting old cloud backup...")
 try:
     client.item(drive='me', path="backup.zip").delete()
 except Exception as e:
     print("Error deleting " + str(e))
+    print("This is okay if this is your first time running this.")
 # Upload backup
 print("Uploading...")
 success = False
@@ -102,7 +108,7 @@ while (not success) and (iterations < 3):
     try:
         # Upload file async
         client.item(drive='me', path="backup.zip").upload_async('./thisbackup.zip', upload_status=status)
-    except Exception:
+    except Exception as e:
         success = False
         if iterations == 0:
             print("Nope, still gotta upload this.")
@@ -110,10 +116,16 @@ while (not success) and (iterations < 3):
             print("This, it's important.")
         elif iterations == 2:
             print("Fine, fine, I'm done.")
+            print("Couldn't upload Raspberry Pi because of "+str(e)+".")
+            webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/uploaderror.html")
     iterations += 1
 print("Freeing up space by deleting local zip backup...")
 # Remove local copies to not take up a lot of space
-os.remove("thisbackup.zip")
+try:
+    os.remove("thisbackup.zip")
+except Exception as e:
+    print("Unable to remove local zip backup because of "+str(e)+", look in your disk for large zip files and change this code.")
 print("Saving session...")
 # Save session so if we refreshed it, our session stays valid
 auth_provider.save_session()
+print("Backup full of success.")
