@@ -33,7 +33,7 @@ def hash_file(filename):
            h.update(chunk)
    return h.hexdigest()
 def status(part, total):
-    print("about" + str(round((part + 1) / (total + 1) * 10000) / 100.0) + "% complete, " + str(part) + "/" + str(total))
+    print("about " + str(round((part + 1) / (total + 1) * 10000) / 100.0) + "% complete, " + str(part) + "/" + str(total))
 def download(client, drivename, localname):
     loop = asyncio.get_event_loop()
     loop.run_until_complete(client.item(drive='me', path=drivename).download_async(localname))
@@ -101,7 +101,7 @@ while (not success) and (iterations < 3):
     iterations += 1
 print("Freeing up space by deleting local zip backup...")
 # Remove local copies to not take up a lot of space
-os.remove("*.zip")
+os.remove("thisbackup.zip")
 print("Saving session...")
 # Save session so if we refreshed it, our session stays valid
 auth_provider.save_session()
