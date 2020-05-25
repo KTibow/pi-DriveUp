@@ -57,17 +57,21 @@ try:
 except Exception as e:
     print("Couldn't get the latest version of backup.py because of "+str(e)+".")
     webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/latestversionerror.html")
-    exit()
 # Auth
-scopes = ['wl.signin', 'wl.offline_access', 'onedrive.readwrite']
-http_provider = onedrivesdk.HttpProvider()
-base_url = 'https://api.onedrive.com/v1.0/'
-auth_provider = onedrivesdk.AuthProvider(http_provider,
-                                         client_id,
-                                         scopes)
-auth_provider.load_session()
-auth_provider.refresh_token()
-client = onedrivesdk.OneDriveClient(base_url, auth_provider, http_provider)
+try:
+    scopes = ['wl.signin', 'wl.offline_access', 'onedrive.readwrite']
+    http_provider = onedrivesdk.HttpProvider()
+    base_url = 'https://api.onedrive.com/v1.0/'
+    auth_provider = onedrivesdk.AuthProvider(http_provider,
+                                             client_id,
+                                             scopes)
+    auth_provider.load_session()
+    auth_provider.refresh_token()
+    client = onedrivesdk.OneDriveClient(base_url, auth_provider, http_provider)
+except Exception as e:
+    print("Couldn't authenticate with OneDrive because of "+str(e)+".")
+    webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/autherror.html")
+    exit()
 # Compression
 backup = ZipFile('thisbackup.zip', 'w')
 for dir in ["/home", "/bin", "/boot", "/etc", "/lib", "/lost+found", "/media", "/mnt", "/opt", "/sbin", "/srv", "/usr", "/var"]:
