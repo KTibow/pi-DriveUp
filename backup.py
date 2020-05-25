@@ -54,6 +54,8 @@ try:
         print("Update available! Re-running...")
         os.system("sudo mv "+os.getcwd()+"/latestbackup.py /root/backup.py; sudo python3 /root/backup.py")
         exit()
+    else:
+        os.system("sudo rm /root/latestbackup.py")
 except Exception as e:
     print("Couldn't get the latest version of backup.py because of "+str(e)+".")
     webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/latestversionerror.html")
