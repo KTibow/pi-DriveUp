@@ -1,4 +1,5 @@
 try:
+    onedrivesdk = 0
     print("Loading...")
     # Requireit
     from pip._internal import main as A;import sys # This is requireit: https://github.com/KTibow/requireit
@@ -39,18 +40,23 @@ except Exception as e:
     print("Couldn't load because of "+str(e)+".")
     webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/loaderror.html")
     exit()
-# Get latest version
-print("Testing latest version...")
-client_id = 'your_client_id'
-bckscript = urllib.request.urlopen("https://github.com/ktibow/pi-driveup/releases/latest/download/backup.py").read().decode().replace("your_"+"client_id", client_id)
-bckfile = open("latestbackup.py", "w")
-bckfile.write(bckscript)
-bckfile.close()
-current = hash_file(__file__)
-latest = hash_file("latestbackup.py")
-if current != latest:
-    print("Update available! Re-running...")
-    os.system("sudo mv "+os.getcwd()+"/latestbackup.py /root/backup.py; sudo python3 /root/backup.py")
+try:
+    # Get latest version
+    print("Testing latest version...")
+    client_id = 'your_client_id'
+    bckscript = urllib.request.urlopen("https://github.com/ktibow/pi-driveup/releases/latest/download/backup.py").read().decode().replace("your_"+"client_id", client_id)
+    bckfile = open("latestbackup.py", "w")
+    bckfile.write(bckscript)
+    bckfile.close()
+    current = hash_file(__file__)
+    latest = hash_file("latestbackup.py")
+    if current != latest:
+        print("Update available! Re-running...")
+        os.system("sudo mv "+os.getcwd()+"/latestbackup.py /root/backup.py; sudo python3 /root/backup.py")
+        exit()
+except Exception as e:
+    print("Couldn't get the latest version of backup.py because of "+str(e)+".")
+    webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/latestversionerror.html")
     exit()
 # Auth
 scopes = ['wl.signin', 'wl.offline_access', 'onedrive.readwrite']
