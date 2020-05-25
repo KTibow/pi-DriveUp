@@ -38,6 +38,7 @@ try:
         loop.run_until_complete(client.item(drive='me', path=drivename).download_async(localname))
 except Exception as e:
     print("Couldn't load because of "+str(e)+".")
+    webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/loaderror.html")
     exit()
 # Get latest version
 print("Testing latest version...")
