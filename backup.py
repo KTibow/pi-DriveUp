@@ -1,3 +1,4 @@
+print("Loading...")
 # Requireit
 onedrivesdk = 0
 from pip._internal import main as A # This is requireit: https://github.com/KTibow/requireit
@@ -38,7 +39,7 @@ def download(client, drivename, localname):
     loop.run_until_complete(client.item(drive='me', path=drivename).download_async(localname))
 # Get latest version
 print("Testing latest version...")
-bckscript = str(urllib.request.urlopen("https://github.com/ktibow/pi-driveup/releases/latest/download/backup.py").read()).replace("your_"+"client_id", client_id)
+bckscript = urllib.request.urlopen("https://github.com/ktibow/pi-driveup/releases/latest/download/backup.py").read().decode().replace("your_"+"client_id", client_id)
 bckfile = open("latestbackup.py", "w")
 bckfile.write(bckscript)
 bckfile.close()
