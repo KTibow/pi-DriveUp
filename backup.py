@@ -39,6 +39,7 @@ def download(client, drivename, localname):
     loop.run_until_complete(client.item(drive='me', path=drivename).download_async(localname))
 # Get latest version
 print("Testing latest version...")
+client_id = 'your_client_id'
 bckscript = urllib.request.urlopen("https://github.com/ktibow/pi-driveup/releases/latest/download/backup.py").read().decode().replace("your_"+"client_id", client_id)
 bckfile = open("latestbackup.py", "w")
 bckfile.write(bckscript)
@@ -50,7 +51,6 @@ if current != latest:
     os.system("sudo mv "+os.getcwd()+"/latestbackup.py /root/backup.py; sudo python3 /root/backup.py")
     exit()
 # Auth
-client_id = 'your_client_id'
 scopes = ['wl.signin', 'wl.offline_access', 'onedrive.readwrite']
 http_provider = onedrivesdk.HttpProvider()
 base_url = 'https://api.onedrive.com/v1.0/'
