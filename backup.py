@@ -87,7 +87,7 @@ try:
                         backup.write(filePath)
                 except FileNotFoundError:
                     pass
-backup.close()
+    backup.close()
 except Exception as e:
     print("Couldn't compress the Raspberry Pi because of "+str(e)+".")
     webbrowser.open_new("https://ktibow.github.io/pi-DriveUp/ziperror.html")
