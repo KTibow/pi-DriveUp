@@ -1,42 +1,44 @@
-print("Loading...")
-# Requireit
-onedrivesdk = 0
-from pip._internal import main as A # This is requireit: https://github.com/KTibow/requireit
-class VersionError(Exception):0
-class InstallError(Exception):0
-E="Couldn't auto-install ";F='install'
-def requireit(B):
-    for C in B:
-        J=C if isinstance(C,str)else C[0]
-        try:from importlib import import_module as L
-        except ImportError:raise VersionError('Please upgrade Python')
-        try: globals()[J]=L(J)
-        except ModuleNotFoundError:
-            try:A([F,C]) if isinstance(C,str)else A([F,C[1]]);globals()[J]=L(J)
-            except Exception:raise InstallError(E+J)
-requireit([["onedrivesdk", "git+https://github.com/OneDrive/onedrive-sdk-python.git"]])
-if onedrivesdk == 0:
-    print("Package error... If there's an exception later, replace this and everything above with \"import onedrivesdk\". Make sure you've installed it with \"pip install git+https://github.com/OneDrive/onedrive-sdk-python.git\" too.")
-# Imports
-import os
-import urllib.request
-import asyncio
-from zipfile import ZipFile
-import hashlib
-# Functions
-def hash_file(filename):
-   h = hashlib.sha1()
-   with open(filename, 'rb') as file:
-       chunk = 0
-       while chunk != b'':
-           chunk = file.read(1024)
-           h.update(chunk)
-   return h.hexdigest()
-def status(part, total):
-    print("about " + str(round((part + 1) / (total + 1) * 10000) / 100.0) + "% complete, " + str(part) + "/" + str(total))
-def download(client, drivename, localname):
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(client.item(drive='me', path=drivename).download_async(localname))
+try:
+    print("Loading...")
+    # Requireit
+    onedrivesdk = 0
+    from pip._internal import main as A # This is requireit: https://github.com/KTibow/requireit
+    class VersionError(Exception):0
+    class InstallError(Exception):0
+    E="Couldn't auto-install ";F='install'
+    def requireit(B):
+        for C in B:
+            J=C if isinstance(C,str)else C[0]
+            try:from importlib import import_module as L
+            except ImportError:raise VersionError('Please upgrade Python')
+            try: globals()[J]=L(J)
+            except ModuleNotFoundError:
+                try:A([F,C]) if isinstance(C,str)else A([F,C[1]]);globals()[J]=L(J)
+                except Exception:raise InstallError(E+J)
+    requireit([["onedrivesdk", "git+https://github.com/OneDrive/onedrive-sdk-python.git"]])
+    if onedrivesdk == 0:
+        print("Package error... If there's an exception later, replace this and everything above with \"import onedrivesdk\". Make sure you've installed it with \"pip install git+https://github.com/OneDrive/onedrive-sdk-python.git\" too.")
+    # Imports
+    import os, asyncio, hashlib, webbrowser
+    import urllib.request
+    from zipfile import ZipFile
+    # Functions
+    def hash_file(filename):
+       h = hashlib.sha1()
+       with open(filename, 'rb') as file:
+           chunk = 0
+           while chunk != b'':
+               chunk = file.read(1024)
+               h.update(chunk)
+       return h.hexdigest()
+    def status(part, total):
+        print("about " + str(round((part + 1) / (total + 1) * 10000) / 100.0) + "% complete, " + str(part) + "/" + str(total))
+    def download(client, drivename, localname):
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(client.item(drive='me', path=drivename).download_async(localname))
+except Exception as e:
+    print("Couldn't load because of "+str(e)+".")
+    exit()
 # Get latest version
 print("Testing latest version...")
 client_id = 'your_client_id'
