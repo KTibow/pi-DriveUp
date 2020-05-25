@@ -16,12 +16,43 @@ requireit([["onedrivesdk", "git+https://github.com/OneDrive/onedrive-sdk-python.
 if onedrivesdk == 0:
 	print("Package error... If there's an exception later, replace this and everything above with \"import onedrivesdk\". Make sure you've installed it with \"pip install git+https://github.com/OneDrive/onedrive-sdk-python.git\" too.")
 import os
+import urllib.request
 import asyncio
 from zipfile import ZipFile
+import hashlib
+def hash_file(filename):
+   """"This function returns the SHA-1 hash
+   of the file passed into it"""
 
+   # make a hash object
+   h = hashlib.sha1()
+
+   # open file for reading in binary mode
+   with open(filename,'rb') as file:
+
+       # loop till the end of the file
+       chunk = 0
+       while chunk != b'':
+           # read only 1024 bytes at a time
+           chunk = file.read(1024)
+           h.update(chunk)
+
+   # return the hex representation of digest
+   return h.hexdigest()
+client_id = 'your_client_id'
+print("Testing latest version...")
+bckscript = str(urllib.request.urlopen("https://github.com/ktibow/pi-driveup/releases/latest/download/backup.py").read()).replace("your_"+"client_id", client_id)
+bckfile = open("latestbackup.py", "w")
+bckfile.write(bckscript)
+bckfile.close()
+current = hash_file(__file__)
+latest = hash_file("latestbackup.py")
+if current != latest:
+	print("Update available! Re-running...")
+	os.system("sudo mv "+os.getcwd()+"/latestbackup.py /root/backup.py; sudo python3 /root/backup.py")
+	exit()
 scopes = ['wl.signin', 'wl.offline_access', 'onedrive.readwrite']
 http_provider = onedrivesdk.HttpProvider()
-client_id = 'your_client_id'
 base_url = 'https://api.onedrive.com/v1.0/'
 auth_provider = onedrivesdk.AuthProvider(http_provider,
                                          client_id,
