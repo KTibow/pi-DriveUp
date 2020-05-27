@@ -1,8 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Upload scripts on release
-
-on: release
+on:
+  release:
+    types: # This configuration does not affect the page_build event above
+      - created
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
