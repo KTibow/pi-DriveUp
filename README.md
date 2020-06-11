@@ -1,5 +1,4 @@
-# pi-DriveUp
-A simple way to backup your Raspberry Pi to your OneDrive account using Python 3.  
+pi-DriveUp is a simple way to backup your Raspberry Pi to your OneDrive account using Python 3.  
 ![flake8 python lint](https://github.com/KTibow/pi-drive-up/workflows/flake8%20python%20lint/badge.svg)  
 ![Dependencies are auto-installed](https://img.shields.io/badge/dependencies-auto--installed%20by%20requireit-099)  
 <a href="#" class="readmelogo"><img alt="back up to onedrive logo" src="https://github.com/KTibow/pi-DriveUp/raw/master/assets/backuplogoimg.jpg" /></a>
